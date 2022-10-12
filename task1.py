@@ -27,7 +27,10 @@ funcs = (
     'cmath.sqrt',
     'cmath.log',
 )
-
-# выводим на консоль
-for f in funcs:
-    print(f, print_time(eval(f), count, x))
+# проверка на корректность
+if x > 0:
+    # выводим на консоль
+    for f in funcs:
+        print(f, print_time(eval(f), count, x))
+else:
+    print('Error! x < 0 or x = 0')
