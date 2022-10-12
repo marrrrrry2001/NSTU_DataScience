@@ -14,12 +14,13 @@ count = 1000000
 
 
 def print_time(f, count, x):
+    """Показывает время вызова функции count раз"""
     time1 = time.time()
     list(map(lambda y: f(x), range(count)))
     time2 = time.time()
     return time2 - time1
 
-
+# кортеж из функций
 funcs = (
     'math.sqrt',
     'math.log',
@@ -27,5 +28,6 @@ funcs = (
     'cmath.log',
 )
 
+# выводим на консоль
 for f in funcs:
     print(f, print_time(eval(f), count, x))
