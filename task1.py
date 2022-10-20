@@ -13,10 +13,18 @@ x = float(input())
 count = 1000000
 
 
-def print_time(f, count, x):
+def print_time1(f, count, x):
     """Показывает время вызова функции count раз"""
     time1 = time.time()
     list(map(lambda y: f(x), range(count)))
+    time2 = time.time()
+    return time2 - time1
+
+# сделать без list(map()) через цикл
+def print_time2(f, count, x):
+    """Показывает время вызова функции count раз другим способом"""
+    time1 = time.time()
+    [f(x) for i in range(count)]
     time2 = time.time()
     return time2 - time1
 
@@ -31,6 +39,8 @@ funcs = (
 if x > 0:
     # выводим на консоль
     for f in funcs:
-        print(f, print_time(eval(f), count, x))
+        print(f, print_time1(eval(f), count, x))
+        print(f, print_time2(eval(f), count, x))
+
 else:
     print('Error! x < 0 or x = 0')
