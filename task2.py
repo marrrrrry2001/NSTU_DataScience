@@ -4,3 +4,20 @@
 # преобразования вводимых данных в числовой формат: int / float, а в случае невозможности преобразовать
 # остаётся str. Запишите словарь в файл.
 
+keys = []
+lst = []
+try:
+    a = int(input('Введите число элементов: '))
+    for __ in range(a):
+        keys.append(input())
+    for key in keys:
+        try:
+            lst.append(float(key))
+        except ValueError:
+            lst.append(key)
+except ValueError:
+    print('Error!')
+    a = int(input('Введите число элементов: '))
+
+dictionary = dict(zip(keys, lst))
+print(keys, lst)
